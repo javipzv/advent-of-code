@@ -1,6 +1,6 @@
 input = "1113222113"
 
-for _ in range(40):
+for _ in range(50):
     result = ""
     for i in range(len(input)):
         if i == 0:

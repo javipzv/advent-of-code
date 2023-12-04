@@ -12,7 +12,7 @@ for travel in input_data:
     cities.add(origin)
     cities.add(destination)
 
-min_cost = float("inf")
+max_cost = float("-inf")
 possibilities = list(permutations(cities))
 for path in possibilities:
     valid = True
@@ -23,7 +23,7 @@ for path in possibilities:
         else:
             valid = False
     if valid:
-        min_cost = min(path_cost, min_cost)
+        max_cost = max(path_cost, max_cost)
 
-print(min_cost)
+print(max_cost)
 

@@ -3,16 +3,13 @@ with open('input.txt', 'r') as file:
     input = [line.strip() for line in file]
 
 def n_ways_binary_search(begin, end, time, distance):
-    if begin == end:
-        return begin
+    mid = begin+(end-begin)//2
+    if mid == begin:
+        return begin-(time-begin)+1
+    if mid*(time-mid) <= distance:
+        return n_ways_binary_search(begin, mid, time, distance)
     else:
-        mid = begin+(end-begin)//2
-        if mid == begin:
-            return begin-(time-begin)+1
-        if mid*(time-mid) <= distance:
-            return n_ways_binary_search(begin, mid, time, distance)
-        else:
-            return n_ways_binary_search(mid, end, time, distance)
+        return n_ways_binary_search(mid, end, time, distance)
 
 times = [int(t) for t in input[0][5:].split(" ") if t != ""]
 distances = [int(d) for d in input[1][9:].split(" ") if d != ""]
